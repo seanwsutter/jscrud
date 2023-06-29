@@ -1,0 +1,32 @@
+/* css syntax for notes, instead of <!-- --> */
+body {
+    padding: 5px;
+    margin: 1px;
+    background-color:whitesmoke;
+}
+header {
+    font-family: Impact;
+    font-size: 15px; 
+    text-align: center;
+    text-transform: lowercase;
+    font-style: oblique;
+    color:black;
+    padding: 20px;
+    margin: 5px;
+    background-color:white;
+    border: 2px solid;
+    border-color:slategray;
+    }
+footer {
+    font-family: Impact;
+    font-size: 15px;
+    text-align: center;
+    text-transform: lowercase;
+    font-style: oblique;
+    padding: 5px;
+    margin: 1px;
+    color:black;
+    background-color: white;
+    border: 2px solid;
+    border-color:slategray;
+}
