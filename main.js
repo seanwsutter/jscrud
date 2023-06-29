@@ -2,15 +2,15 @@ console.log('javascript practice');
 // in-line comment
 /* multi-line
 comment */
-
-/* -------- NOTES -----------
+/*
+-------- NOTES -----------
 8 data types: undefined, null, boolean, string, symbol, bigint, number, and object
 
 'variables' store and manipulate data using a "label" to POINT to the data rather than USING the data itself
 like 'x' and 'y' in math
 
 any of the 8 data types can be stores in a 'variable'
--------- NOTES ----------- */
+-------- NOTES -----------
 
 // freecodecamp javascript start 
 
@@ -30,10 +30,6 @@ b = b + 5;
 c = c + " String!";
 console.log(a)
 
-
-
-
-
 var myName; // creates 'variable' myName (let vs var?)
 myName = "Sean"; // assigns value 'Sean' to 'variable'
-
+*/
