@@ -7,18 +7,18 @@ body {
   display: flex;
   gap: 50px;
 }
-
+/* '.' to reference 'class' */
 #posts {
   width: 400px;
 }
-
+/* hashtag? */
 #posts div { 
   display: flex; 
   align-items: center;
   justify-content: space-between;
 } 
 
-.options { /* '.' to reference 'class' */
+.options { 
   display: flex;
   gap: 25px;
 }
