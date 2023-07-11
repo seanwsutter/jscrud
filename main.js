@@ -8,26 +8,77 @@ let form = document.getElementById("form");
 let input = document.getElementById("input");
 let msg = document.getElementById("msg");
 let posts = document.getElementById("posts");
+// targets all the ID selectors from the html
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("button clicked"); // log
-
-  formValidation();
+  console.log("button clicked");
+  formValidation(); 
 });
-
-
-function formValidation() { }
+// added a 'submit event listener' for the form so that it can prevent the default behavior of app
 
 let formValidation = () => {
   if (input.value === "") {
     msg.innerHTML = "Post cannot be blank";
-    console.log("failure"); // log
+    console.log("failure");
   } else {
-    console.log("successs"); // log
+    console.log("successs");
     msg.innerHTML = "";
+    acceptData();
   }
 };
+// added if else statement to function, prevents users from submitting blank input fields
+
+let data = {};
+
+let acceptData = () => {
+  data["text"] = input.value;
+  console.log(data);
+};
+
+// created an object named data, created function named acceptData - add later
+// Whatever data we get from the input fields, we will store them in an object. 
+// using the function, we collect data from the inputs and store them in our object named data
+
+// we need the acceptData function to work when the user clicks the submit button.
+// For that, we will fire this function in the else statement of our formValidation function *** Add above
+
+
+/* Questions & Notes
+
+lightbulb create named function? msg.innerHTML error?
+
+let form = document.getElementById("form");
+let input = document.getElementById("input");
+let msg = document.getElementById("msg");
+let posts = document.getElementById("posts");
+// targets all the ID selectors from the html
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("button clicked");
+  formValidation();
+});
+
+// added a 'submit event listener' for the form so that it can prevent the default behavior of app
+let formValidation = () => {};
+// created 'function'named formValidation
+  if (input.value === "") {
+    msg.innerHTML = "Post cannot be blank";
+    console.log("failure");
+  } else {
+    console.log("successs");
+    msg.innerHTML = "";
+  }
+// added if else statement to function, prevents users from submitting blank input fields
+
+
+
+
+
+
+
+
 /*
 
 
