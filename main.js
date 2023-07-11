@@ -22,28 +22,60 @@ let formValidation = () => {
     msg.innerHTML = "Post cannot be blank";
     console.log("failure");
   } else {
-    console.log("successs");
+    console.log("success");
     msg.innerHTML = "";
-    acceptData();
+    acceptData(); // acceptData function works when clicking the submit button. 
+    // For that, we will fire this function in the else statement of our formValidation function
   }
 };
 // added if else statement to function, prevents users from submitting blank input fields
 
 let data = {};
-
+// created object named data
 let acceptData = () => {
   data["text"] = input.value;
   console.log(data);
+  createPost();
 };
-
-// created an object named data, created function named acceptData - add later
+// created function named acceptData and will fire on successful submit
 // Whatever data we get from the input fields, we will store them in an object. 
 // using the function, we collect data from the inputs and store them in our object named data
 
-// we need the acceptData function to work when the user clicks the submit button.
-// For that, we will fire this function in the else statement of our formValidation function *** Add above
+/* javascript template literals */
 
+// In order to post our input data on the right side,
+// we need to create a div element and append it to the posts div. ????
 
+let createPost = () => {
+  posts.innerHTML += `
+  <div>
+    <p>${data.text}</p>
+    <span class="options">
+      <i onClick="editPost(this)" class="fas fa-edit"></i>
+      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+    </span>
+  </div>
+  `;
+  input.value = "";
+};
+// The backticks are template literals
+// need 3 things: a parent div, the input itself, and the options div which carries the edit and delete icons. 
+// in acceptData function, fire the createPost function 
+
+/* capital l reeeee
+let createPost = () => {
+  posts.innerHTMl += `
+  <div>
+    <p>${data.text}</p>
+    <span class="options">
+      <i onClick="editPost(this)" class="fas fa-edit"></i>
+      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+    </span>
+ </div>
+  `;
+  input.value = "";
+};
+*/
 /* Questions & Notes
 
 lightbulb create named function? msg.innerHTML error?
