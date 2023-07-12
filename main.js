@@ -3,7 +3,6 @@ console.log('javascript practice');
 /* multi-line
 comment */
 
-
 let form = document.getElementById("form");
 let input = document.getElementById("input");
 let msg = document.getElementById("msg");
@@ -15,67 +14,54 @@ form.addEventListener("submit", (e) => {
   console.log("button clicked");
   formValidation(); 
 });
-// added a 'submit event listener' for the form so that it can prevent the default behavior of app
+// added a 'submit event listener'? for the form so that it can prevent the default behavior of app
 
 let formValidation = () => {
   if (input.value === "") {
     msg.innerHTML = "Post cannot be blank";
-    console.log("failure");
+    console.log("failure"); // failure state
   } else {
-    console.log("success");
+    console.log("success"); // success state
     msg.innerHTML = "";
-    acceptData(); // acceptData function works when clicking the submit button. 
-    // For that, we will fire this function in the else statement of our formValidation function
+    acceptData(); // invoking acceptData function works in submit button/success state but not failure state
   }
 };
-// added if else statement to function, prevents users from submitting blank input fields
+// added if else statement to function formValidation that prevents users from submitting blank input fields
 
 let data = {};
-// created object named data
-let acceptData = () => {
-  data["text"] = input.value;
-  console.log(data);
-  createPost();
+// created empty object named data
+let acceptData = () => { // ES6 function syntax?
+  data["text"] = input.value; // input.value is whatever is written in the text box. data["aweawe"]
+  console.log(data); 
+  createPost(); 
 };
-// created function named acceptData and will fire on successful submit
-// Whatever data we get from the input fields, we will store them in an object. 
-// using the function, we collect data from the inputs and store them in our object named data
-
-/* javascript template literals */
-
-// In order to post our input data on the right side,
-// we need to create a div element and append it to the posts div. ????
+// using the function, will collect from the inputs and store them in our object named data
+// added template literal using `` with the Post 1 div as a template (edit/trash icons)
 
 let createPost = () => {
-  posts.innerHTML += `
+  posts.innerHTML += ` 
   <div>
     <p>${data.text}</p>
     <span class="options">
       <i onClick="editPost(this)" class="fas fa-edit"></i>
-      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i> 
     </span>
   </div>
-  `;
-  input.value = "";
+  `; // (this) will target ONLY what is clicked on. Use (this) to delete the entire post div parent
+  input.value = ""; // **important** input.value = "" resets the text input form/field
 };
-// The backticks are template literals
-// need 3 things: a parent div, the input itself, and the options div which carries the edit and delete icons. 
-// in acceptData function, fire the createPost function 
 
-/* capital l reeeee
-let createPost = () => {
-  posts.innerHTMl += `
-  <div>
-    <p>${data.text}</p>
-    <span class="options">
-      <i onClick="editPost(this)" class="fas fa-edit"></i>
-      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
-    </span>
- </div>
-  `;
-  input.value = "";
+let deletePost = (e) => { // Clicking on delete/trash icon will trigger this function, (e) for exmaple to capture (this)
+  e.parentElement.parentElement.remove(); // parent div is <span class>, so parentElement.parentElement to move up divs
 };
-*/
+
+/* edit post */
+// clicking edit icon will bring back text to input field
+let editPost = (e) => { // clicking edit icon to target 'previous d iv element sibling'
+  input.value = e.parentElement.previousElementSibling.innerHTML;
+  e.parentElement.parentElement.remove(); // This will also remove the post from the right side
+};
+
 /* Questions & Notes
 
 lightbulb create named function? msg.innerHTML error?
